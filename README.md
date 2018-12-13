@@ -19,7 +19,7 @@
  * `cloud-functions` 云函数
  * `server` 服务端
 
-#### 参与贡献 -- 欢迎 ✨Star & PR
+#### 参与贡献 -- 欢迎 ✨Star & PR
 
 1. Fork 本项目
 2. 新建 Feat_xxx 分支
@@ -29,7 +29,7 @@
 #### 备注
  * 本小程序由服务端 [云开发](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/basis/getting-started.html) 提供驱动
  * 本小程序地图使用[腾讯地图](https://lbs.qq.com/index.html)
- * 小程序框架模版由 [template-weapp](https://github.com/tech-demo/template-weapp) 强力驱动
+ * 小程序框架模版由 [template-weapp](https://github.com/tech-demo/template-weapp) 强力驱动
  * 黑科技展现: 绕过授权, 获取地理位置信息
  * `资源来自互联网侵权, 违规立删`
 
@@ -39,6 +39,6 @@
 
     <img src="./demo-img/qr-code.jpg" width = "300" height = "300" />
 
- * 如果本文项目对您有所帮助, 请杯咖啡☕️吧～
+ * 如果本项目对您有所帮助, 请杯咖啡☕️吧～
 
     <img src="./demo-img/WechatIMG.jpeg" width = "300" height = "300" />
