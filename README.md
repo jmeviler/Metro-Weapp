@@ -37,8 +37,8 @@
 
  * 小程序二维码
 
-    <img src="./demo-img/qr-code.jpg" width = "300" height = "300" />
+    <img src="./screenshot/qr-code.jpg" width = "300" height = "300" />
 
  * 如果本项目对您有所帮助, 请杯咖啡☕️吧～
 
-    <img src="./demo-img/WechatIMG.jpeg" width = "300" height = "300" />
+    <img src="./screenshot/WechatIMG.jpeg" width = "300" height = "300" />
