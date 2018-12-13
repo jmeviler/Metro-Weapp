@@ -1,0 +1,64 @@
+#! /bin/bash
+# Check commit message
+
+is_valid=true
+
+length_exception=1
+scope_uppercase_exception=2
+subject_uppercase_exception=3
+end_with_dot_exception=4
+
+function showErrorMsg() {
+    error_header="\n\033[1;31mBad commit message!\033[0m \"$1\" "
+
+    if [[ $2 -eq $length_exception ]]; then
+        echo -e $error_header'is longer than' $max_length 'characters! was:' $3
+    elif [[ $2 -eq $scope_uppercase_exception ]]; then
+        echo -e $error_header'the first letter of the scope should be lower case! was:' $3
+    elif [[ $2 -eq $subject_uppercase_exception ]]; then
+        echo -e $error_header'the first letter of the subject should be lower case! was:' $3
+    elif [[ $2 -eq $end_with_dot_exception ]]; then
+        echo -e $error_header'the subject should not end with dot(.)! was:' $3
+    else
+        echo -e $error_header'does not match "'$pattern'" format!'
+    fi
+
+    is_valid=false
+}
+
+read msg < .git/COMMIT_EDITMSG
+
+max_length=100
+length=${#msg}
+pattern='^(hotfix|fix|refactor|feat)\(?[a-zA-Z0-9\-]*\)?: .*( #\d+)?$'
+
+if [[ $msg =~ $pattern ]]; then
+    if [[ $length -gt $max_length ]]; then
+        showErrorMsg "$msg" $length_exception "$length"
+    fi
+
+    scope=$(echo $msg | awk 'BEGIN{FS=": "}{printf $1}')
+    subject=$(echo $msg | awk 'BEGIN{FS=": "}{printf $2}')
+    pattern_start_with_uppercase='^[A-Z]{1}.*$'
+    if [[ $scope =~ $pattern_start_with_uppercase ]]; then
+        showErrorMsg "$msg" $scope_uppercase_exception "$scope"
+    fi
+
+    if [[ $subject =~ $pattern_start_with_uppercase ]]; then
+        showErrorMsg "$msg" $subject_uppercase_exception "$subject"
+    fi
+
+    pattern_end_with_dot='^.*[.]$'
+    if [[ $subject =~ $pattern_end_with_dot ]]; then
+        showErrorMsg "$msg" $end_with_dot_exception "$subject"
+    fi
+
+    if $is_valid; then
+        echo -e '\033[1;32mOk! >>\033[0m verified commit message.'
+    else
+        exit 1
+    fi
+else
+    showErrorMsg "$msg" 0
+    exit 1
+fi

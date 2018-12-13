@@ -1,0 +1,35 @@
+{
+  "pages": [
+    "pages/home/index",
+    "pages/index/index",
+    "pages/list/index",
+    "pages/detail/index",
+    "pages/map/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "上海地铁",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#dddddd",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "dddddd",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "text": "首页",
+        "pagePath": "pages/home/index",
+        "iconPath": "images/icon_home.png",
+        "selectedIconPath": "images/icon_home_selected.png"
+      },
+      {
+        "text": "地铁",
+        "pagePath": "pages/index/index",
+        "iconPath": "images/icon_metro.png",
+        "selectedIconPath": "images/icon_metro_selected.png"
+      }
+    ]
+  }
+}

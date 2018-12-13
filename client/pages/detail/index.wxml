@@ -1,0 +1,132 @@
+<wxs module="msort">
+  var getSort = function(array) { return array.sort(); }
+  module.exports.getSort = getSort;
+</wxs>
+
+<view class="detail-container">
+  <view class="title-wrap">
+    <view class="name-wrap">
+      <text class="name-zh">{{name}}</text>
+      <text class="name-en">{{nameEn}}</text>
+    </view>
+
+    <view class="line-names">
+      <view
+        class="line-name-item"
+        style="background-color:{{lineColors[item]}};"
+        wx:for="{{msort.getSort(lines)}}"
+        wx:key="index"
+      >
+        {{item === '41' ? '浦' : item}}
+      </view>
+    </view>
+
+    <view class="goto-tips" bindtap="goToMap">
+      <image src="/images/icon_goto.png" class="icon-goto" />
+      <text class="tips-text">到这去</text>
+    </view>
+  </view>
+
+  <view class="stv-container">
+    <view class="tab-bar">
+      <view
+        wx:for="{{tabs}}"
+        wx:key="unique"
+        data-index="{{index}}"
+        bindtap="onClickTab"
+        class="tab {{activeTab === index ? 'tab-active':''}}"
+        style="width:calc((100vw - 60rpx) / {{tabs.length}});"
+      >
+        <text>{{item}}</text>
+        <text class="episode" wx:if="{{index === 1 && chapters.length}}">{{chapters.length}}</text>
+      </view>
+
+      <view
+        style="width:calc((100vw - 120rpx) / {{tabs.length}});left:{{stv.offset / tabs.length}}px"
+        class="under-line {{!stv.tStart ? 'withAnimate' : ''}}"
+      />
+    </view>
+
+    <view class="scroll-view">
+      <view class="scroll-view-wrapper {{!stv.tStart ? 'withAnimate' : ''}}">
+
+        <view hidden="{{activeTab !== 0}}" class="one-scene">
+          <view class="fl-time" wx:for="{{details}}" wx:key="index">
+            <view class="time-item">
+              <view
+                class="line-name"
+                style="border-left-color:{{lineColors[item.line]}};border-bottom:1px solid {{lineColors[item.line]}}"
+              >
+                {{ item.line === '41' ? '浦江线' : item.line + '号线' }}
+              </view>
+              <view class="time-detail" wx:for="{{item.fltime}}" wx:for-item="time" wx:key="key">
+                <view class="description">{{time.description}}</view>
+                <view
+                  class="time-wrap"
+                  wx:if="{{time.first_time === time.first_time_yc && time.last_time === time.last_time_yc}}"
+                >
+                  <view class="week-day">周一 <text style="font-weight:700;">至</text> 周日:</view>
+                  <image src="/images/icon_first.png" class="icon-base" /> <text class="time">{{time.first_time || '未知'}}</text>
+                  <image src="/images/icon_last.png" class="icon-base" />  <text class="time">{{time.last_time || '未知'}}</text>
+                </view>
+
+                <view wx:else>
+                  <view class="time-wrap">
+                    <view class="week-day" wx:if="{{time.first_time_yc && time.last_time_yc}}">
+                      周日 <text style="font-weight:700;">至</text> 周四:
+                    </view>
+                    <view class="week-day" wx:else>
+                      周一 <text style="font-weight:700;">至</text> 周日:
+                    </view>
+                    <image src="/images/icon_first.png" class="icon-base" /> <text class="time">{{time.first_time || '未知'}}</text>
+                    <image src="/images/icon_last.png" class="icon-base" />  <text class="time">{{time.last_time || '未知'}}</text>
+                  </view>
+
+                  <view class="time-wrap" wx:if="{{time.first_time_yc && time.last_time_yc}}">
+                    <view class="week-day">周五 <text style="font-weight:700;">至</text> 周六:</view>
+                    <image src="/images/icon_first.png" class="icon-base" /> <text class="time">{{time.first_time_yc || '未知'}}</text>
+                    <image src="/images/icon_last.png" class="icon-base" />  <text class="time">{{time.last_time_yc || '未知'}}</text>                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <view hidden="{{activeTab !== 1}}" class="one-scene">
+          <view class="line-name base-tips">厕所</view>
+          <view class="fl-time" wx:for="{{details}}" wx:key="index">
+            <view class="time-item">
+              <view
+                class="line-name"
+                style="border-left-color:{{lineColors[item.line]}};"
+              >
+                {{item.line === '41' ? '浦江线' : item.line + '号线'}}
+              </view>
+            </view>
+            <view class="wc">
+              <image src="/images/icon_wc.png" class="icon-wc" />
+              {{item.toilet_cn}}
+            </view>
+          </view>
+
+          <view class="exit-wrap" wx:if="{{exit && exit.length}}">
+            <view class="line-name base-tips">出口</view>
+            <view class="exit-info" wx:for="{{exit}}" wx:key="index">
+              <view class="exit-name"><text>{{item.name}}</text>号口</view>
+              <view class="exit-detail">
+                <view class="exit-item" wx:for="{{item.content}}" wx:for-item="content" wx:key="key">
+                  {{content}}
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <view hidden="{{activeTab !== 2}}" class="one-scene img-wrap">
+          <image class="img-station" src="{{imgUrl}}" mode="widthFix" bindtap="onClickPreview" />
+          <view class="img-tips">点击图片进行预览</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

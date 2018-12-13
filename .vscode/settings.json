@@ -1,0 +1,11 @@
+{
+  "files.associations": {
+    "*.wxss": "css",
+    "*.wxml": "html"
+  },
+  "gitlens.codeLens.authors.enabled": false,
+  "gitlens.codeLens.recentChange.enabled": false,
+  "search.exclude": {
+    "**/node_modules": true
+  }
+}

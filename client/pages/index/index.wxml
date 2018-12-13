@@ -1,0 +1,26 @@
+<view class="scroll-view" wx:if="{{canRender}}">
+    <view class="scroll-container">
+        <view
+            class="item-container"
+            wx:for="{{lines}}"
+            wx:for-item="line"
+            wx:key="index"
+        >
+            <view bindtap="onClickItem" class="item" data-item="{{line}}" style="background-color:#{{line.color}};">
+                <view class="title-wrap">
+                    <text class="title">{{line.lineName === '2号线\2号线东延线' ? '2号线' : line.lineName}}</text>
+                    <text class="sub-title">{{line.la}}</text>
+                </view>
+                <view class="cross-lines">
+                    <text
+                        class="cross-line"
+                        style="background-color:#{{item.color}};"
+                        wx:if="{{line.color!==item.color}}"
+                        wx:for="{{line.crosslines}}"
+                        wx:key="index"
+                        >{{item.kn === '浦江线' ? '浦' : item.kn}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

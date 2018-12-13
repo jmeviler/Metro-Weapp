@@ -1,0 +1,268 @@
+.detail-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.title-wrap {
+  display: flex;
+  align-content: center;
+  align-items: flex-end;
+  align-self: stretch;
+}
+
+.title-wrap .name-wrap {
+  display: flex;
+  flex-direction: column;
+  color: #282828;
+  padding: 30rpx;
+  padding-bottom: 0;
+}
+
+.name-wrap .name-zh {
+  font-size: 42rpx;
+  font-weight: 500;
+}
+
+.name-wrap .name-en {
+  font-size: 32rpx;
+  line-height: 1;
+  padding: 5rpx 0;
+}
+
+.title-wrap .line-names {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  padding: 30rpx;
+  padding-bottom: 0;
+  margin-top: 20rpx;
+}
+
+.line-names .line-name-item {
+  width: 30rpx;
+  height: 30rpx;
+  color: #FFF;
+  font-weight: 500;
+  text-align: center;
+  display: inline-block;
+  font-size: 26rpx;
+  line-height: 30rpx;
+  border-radius: 5rpx;
+  margin-right: 10rpx;
+}
+
+.title-wrap .goto-tips {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  font-size: 24rpx;
+  color: #282828;
+  position: absolute;
+  right: 40rpx;
+}
+
+.goto-tips .tips-text {
+  line-height: 1;
+  padding: 5rpx 0;
+}
+
+.goto-tips .icon-goto {
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.stv-container {
+  position: relative;
+  margin-top: 20rpx;
+  background-color: #FFF;
+  padding: 30rpx;
+  border-top: 2px solid #7B39DD;
+}
+
+.withAnimate {
+  transition: all 100ms ease;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  -ms-perspective: 1000;
+  perspective: 1000;
+}
+
+.stv-container .tab-bar {
+  position: relative;
+  display: flex;
+  font-size: 28rpx;
+  color: #101010;
+  border-bottom: 2px solid #ddd;
+}
+
+.stv-container .episode {
+  color: #101010;
+  font-size: 24rpx;
+  padding: 0 5rpx;
+  text-align: center;
+  border: 1px solid #101010;
+  border-radius: 5px 0px 5px 5px;
+  margin-left: 14rpx;
+}
+
+.stv-container .tab-bar .tab-active {
+  color: #3C32C6;
+}
+
+.stv-container .tab-bar .tab-active .episode {
+  color: #3C32C6;
+  border: 1px solid #3C32C6;
+}
+
+.stv-container .tab-bar .tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 16rpx;
+  padding-bottom: 20rpx;
+}
+
+.stv-container .tab-bar .under-line {
+  position: absolute;
+  bottom: -2px;
+  height: 6rpx;
+  background-color: #3C32C6;
+}
+
+.stv-container .scroll-view {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #FFF;
+}
+
+.stv-container .scroll-view .scroll-view-wrapper {
+  position: relative;
+  display: flex;
+}
+
+.stv-container .scroll-view .scroll-view-wrapper .one-scene {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 100rpx;
+}
+
+.one-scene {
+  margin-top: 20rpx;
+}
+
+.img-wrap {
+  text-align: center;
+}
+
+.img-wrap .img-station {
+  margin-top: 30rpx;
+}
+
+.img-wrap .img-tips {
+  font-size: 28rpx;
+  color: #282828;
+  margin-top: 25rpx;
+}
+
+.fl-time {
+  margin-bottom: 20rpx;
+}
+
+.time-detail {
+  padding-left: 30rpx;
+  margin-top: 10rpx;
+}
+
+.line-name {
+  font-size: 28rpx;
+  border-left: 20rpx solid;
+  padding-left: 10rpx;
+  color: #282828;
+  display: flex;
+}
+
+.description {
+  font-size: 28rpx;
+  font-weight: 500;
+}
+
+.time-wrap {
+  font-size: 26rpx;
+  display: flex;
+  align-content: center;
+  align-items: center;
+}
+
+.time-wrap .week-day {
+  width: 180rpx;
+}
+
+.time-wrap .time {
+  width: 100rpx;
+}
+
+.icon-base {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.wc {
+  font-size: 28rpx;
+  padding: 5rpx;
+  display: flex;
+  align-content: center;
+  align-items: center;
+}
+
+.icon-wc {
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 10rpx;
+}
+
+.exit-info {
+  padding: 5rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.exit-name {
+  font-size: 30rpx;
+}
+
+.exit-name text {
+  font-size: 36rpx;
+  font-weight: 600;
+  margin-right: 5rpx;
+}
+
+.exit-detail {
+  font-size: 28rpx;
+  line-height: 1;
+}
+
+.exit-item {
+  width: 300rpx;
+  display: inline-block;
+  padding-right: 20rpx;
+  padding-bottom: 10rpx;
+}
+
+.base-tips {
+  margin-bottom: 20rpx;
+  border-top: 1px solid #7B39DD;
+  border-bottom: 1px solid #7B39DD;
+  border-left-color: #7b39dd;
+  font-size: 32rpx;
+  font-weight: 600;
+}

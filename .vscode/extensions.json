@@ -1,0 +1,9 @@
+{
+	"recommendations": [
+		"dzannotti.vscode-babel-coloring",
+		"streetsidesoftware.code-spell-checker",
+		"dbaeumer.vscode-eslint",
+		"eamodio.gitlens",
+		"amatiasq.sort-imports"
+	]
+}

@@ -1,0 +1,48 @@
+<view class="weui-search-bar">
+    <view class="weui-search-bar__form">
+        <view class="weui-search-bar__box">
+            <icon class="weui-icon-search_in-box" type="search" size="14" />
+            <input
+              type="text"
+              class="weui-search-bar__input"
+              placeholder="请输入站点名称"
+              confirm-type="search"
+              adjust-position="{{false}}"
+              value="{{inputVal}}"
+              focus="{{inputShowed}}"
+              bindinput="onChangeName"
+            />
+
+            <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="onClearInput">
+                <icon type="clear" size="14" />
+            </view>
+        </view>
+        <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="onShowInput">
+          <view class="weui-search-bar__text">请输入站点名称</view>
+        </label>
+    </view>
+    <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="onHideInput">取消</view>
+</view>
+<view class="weui-cells searchbar-result" wx:if="{{matches.length > 0}}">
+  <navigator wx:for="{{matches}}" wx:key="index" url="/pages/detail/index?name={{item}}" class="weui-cell" hover-class="weui-cell_active">
+    <view class="weui-cell__bd">
+      <view>{{item}}</view>
+    </view>
+  </navigator>
+</view>
+
+<view class="history-wrap weui-cells searchbar-result" wx:if="{{history && history.length && matches.length === 0}}">
+  <navigator wx:for="{{history}}" wx:key="index" url="/pages/detail/index?name={{item}}" class="weui-cell" hover-class="weui-cell_active">
+    <view class="weui-cell__bd history-item">
+      <image src="/images/icon_metro_o.png" class="icon-base icon-metro" />
+      <view>{{item}}</view>
+      <image
+        src="/images/icon_delete.png"
+        class="icon-base icon-delete"
+        data-item="{{item}}"
+        catchtap="onDeleteHistoryItem"
+      />
+    </view>
+  </navigator>
+  <view class="clear-history" bindtap="onDeleteHistory">清空历史记录</view>
+</view>

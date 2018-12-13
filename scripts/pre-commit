@@ -1,0 +1,57 @@
+#!/bin/bash
+# Check code style before commit
+
+staged="git diff --cached --name-only --diff-filter=ACMR --"
+unstaged="git diff --name-only --diff-filter=ACMR --"
+js_files="*.js"
+
+# Kit json or yml configuration file
+root=$(git rev-parse --show-toplevel)
+eslint_conf="${root}/.eslintrc"
+# Check code default prompt information
+function echoPrompt() {
+    if $1; then
+        echo -e "\033[1;32mOk! >>\033[0m check through the $2 code style."
+    else
+        echo -e "\n\033[1;41mCOMMIT FAILED\033[0m:\n\
+Some $2 files are invalid. Please fix errors and try committing again."
+    fi
+}
+
+# To determine whether these modified files is added
+function isAdded() {
+    if [ "$1" != "" ]; then
+        for file in $1; do
+            if [[ $2 =~ ${file} ]]; then
+                echo -e "Changes not staged for commit:\n\
+(use 'git add <file>...' to update what will be committed)\n\
+\033[31m${file}\033[0m"
+                exit 1
+            fi
+        done
+    fi
+}
+
+##### JS code check #####
+# ESLint
+js_pass=true
+staged_js_files=$(${staged} "${js_files}")
+unstaged_js_files=$(${unstaged} "${js_files}")
+
+if [ "$staged_js_files" != "" ]; then
+    isAdded "$unstaged_js_files" "$staged_js_files"
+    echo -e "\n\033[1;34mCheck js code\033[0m:\n$staged_js_files"
+    for file in ${staged_js_files}; do
+        ./node_modules/.bin/eslint ${file}
+        if [[ $? -ne 0 ]]; then
+            js_pass=false
+        fi
+    done
+    echoPrompt $js_pass "js"
+fi
+
+if $js_pass; then
+    exit 0
+else
+    exit 1
+fi

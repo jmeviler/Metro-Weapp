@@ -1,0 +1,114 @@
+.page-section-gap{
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.map {
+  width: 100vw;
+  height: 85vh;
+}
+
+.desc-wrap {
+  width: 100vw;
+  height: 15vh;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-content: space-around;
+}
+
+.desc-wrap .detail {
+  width: 75%;
+  padding: 10rpx 30rpx 20rpx;
+  display: flex;
+  flex-direction: column;
+  font-size: 32rpx;
+  color: #282828;
+  text-align: start;
+  justify-content: space-around;
+}
+
+.desc-wrap .detail text {
+  font-size: 36rpx;
+  font-weight: 600;
+}
+
+.desc-wrap .text-tips {
+  width: 25%;
+  padding: 10rpx 30rpx 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+}
+
+.text-tips .icon-nav {
+  width: 80rpx;
+  height: 80rpx;
+  transform: rotate(180deg);
+}
+
+.text-tips .icon-nav-top {
+  width: 80rpx;
+  height: 80rpx;
+  transform: rotate(90deg);
+}
+
+.cover-wrap {
+  width: 0;
+  height: 0;
+  background: #FFF;
+  border-radius: 20rpx;
+  position: absolute;
+  bottom: 17.5vh;
+  right: 10vw;
+}
+
+.cover-wrap .icon-close {
+  width: 80rpx;
+  height: 80rpx;
+  position: absolute;
+  top: 10rpx;
+  right: 20rpx;
+}
+
+.cover-wrap .instruction {
+  text-align: start;
+  font-size: 32rpx;
+  color: #282828;
+  line-height: 1.25;
+  padding: 10rpx 20rpx;
+}
+
+.cover-wrap .border-view {
+  border: 1rpx solid #282828;
+}
+
+.bigger {
+  animation: bigger .5s forwards;
+}
+
+.smaller {
+  animation: smaller .5s forwards;
+}
+
+@keyframes bigger {
+  100% {
+    width: 80vw;
+    height: 80vh;
+  }
+}
+
+@keyframes smaller {
+  0% {
+    width: 80vw;
+    height: 80vh;
+  }
+  100% {
+    width: 0;
+    height: 0;
+  }
+}

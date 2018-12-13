@@ -1,0 +1,30 @@
+{
+  "name": "template-weapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "fix-lint": "git diff --name-only --cached | egrep '.js$' | xargs eslint --fix || true",
+    "link-files": "ln -sf `pwd`/scripts/commit-msg .git/hooks/commit-msg && ln -sf `pwd`/scripts/pre-commit .git/hooks/pre-commit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:tech-demo/template-weapp.git"
+  },
+  "dependencies": {
+    "babel-eslint": "8.1.2",
+    "eslint": "4.14.0",
+    "eslint-config-airbnb-base": "12.1.0",
+    "eslint-plugin-babel": "4.1.2",
+    "eslint-plugin-import": "2.8.0",
+    "stylelint": "9.2.1",
+    "stylelint-config-standard": "18.2.0",
+    "stylelint-order": "0.8.1"
+  },
+  "importSort": {
+    ".js": {
+      "parser": "babylon",
+      "style": "module"
+    }
+  }
+}

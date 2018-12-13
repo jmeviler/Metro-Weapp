@@ -1,0 +1,31 @@
+<view class="page-section page-section-gap">
+  <map
+    id="myMap"
+    class="map"
+    showLocation
+    latitude="{{cLat}}"
+    longitude="{{cLng}}"
+    markers="{{markers}}"
+    polyline="{{polyline}}"
+  />
+
+  <view class="desc-wrap">
+    <view class="detail">
+      <view>距离约 <text>{{distance}}</text> 米</view>
+      <view wx:if="{{canWalk}}">步行大约需要 <text>{{duration}}</text> 分钟</view>
+      <view wx:if="{{canWalk === false}}" class="walk-tips">路程较远, 建议使用公共交通</view>
+    </view>
+
+    <view class="text-tips" wx:if="{{canWalk}}" bindtap="onShowModal">
+      <image src="/images/icon_nav.png" class="{{showModal ? 'icon-nav-top' : 'icon-nav'}}" />
+      <text>详情</text>
+    </view>
+  </view>
+
+  <cover-view class="cover-wrap {{showModal ? 'bigger' : 'smaller'}}">
+    <cover-view wx:for="{{steps}}" wx:key="step" class="instruction">
+      {{item.instruction}}
+      <cover-view class="border-view" />
+    </cover-view>
+  </cover-view>
+</view>

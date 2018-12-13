@@ -1,0 +1,37 @@
+<view class="list-container">
+  <view class="item" wx:for="{{stations}}" wx:for-item="step" wx:key="index" data-item="{{step}}" bindtap="onClickName">
+    <view class="name-wrap">
+      <view class="item-left">
+            <view class="item-vertical-line" style="background-color:{{index === 0 ? 'transparent' : '#'+lineColor}};" />
+            <view class="item-circle" style="background-color:#{{lineColor}};">
+                <text class="item-start-end-text" wx:if="{{index === 0}}">起</text>
+                <text class="item-start-end-text" wx:elif="{{index === stations.length - 1}}">终</text>
+                <text class="item-start-end-text" wx:else>{{index+1}}</text>
+            </view>
+            <view class="item-vertical-line" style="background-color:{{index === stations.length - 1 ? 'transparent' : '#' + lineColor }}" />
+        </view>
+        <text>{{step.n}}</text>
+        <view
+          class="text-cross-line"
+          style="background-color:#{{item.color}};"
+          wx:for="{{step.stopCrossingLines}}"
+          wx:key="index"
+        >
+          {{item.ln}}
+      </view>
+    </view>
+    <view
+      wx:if="{{step.n === selected && step.info}}"
+      class="info-wrap"
+      style="border-left:1px solid #{{lineColor}};"
+    >
+      <view class="detail">
+        <view wx:for="{{step.info.date}}" wx:key="index">
+          <view wx:for="{{item}}" wx:for-item="{{date}}" wx:key="key">
+            {{date[key]}}
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

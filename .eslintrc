@@ -1,0 +1,98 @@
+{
+  "extends": "airbnb-base",
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "sourceType": "module",
+    "experimentalObjectRestSpread": true
+  },
+  "env": {
+    "node": true
+  },
+  "plugins": [
+    "babel"
+  ],
+  "globals": {
+    "App": true,
+    "wx": true,
+    "getApp": true,
+    "Page": true,
+    "Component": true,
+    "getCurrentPages": true
+  },
+  "rules": {
+    "arrow-body-style": "off",
+    "arrow-parens": "off",
+    "comma-dangle": [
+      "error",
+      "always-multiline"
+    ],
+    "func-names": "off",
+    "global-require": "off",
+    "id-length": "off",
+    "import/extensions": "off",
+    "import/first": "off",
+    "import/no-extraneous-dependencies": "off",
+    "import/no-mutable-exports": "off",
+    "import/no-unresolved": "off",
+    "import/prefer-default-export": "off",
+    "import/no-named-as-default": "off",
+    "jsx-a11y/label-has-for": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "linebreak-style": "off",
+    "max-len": [
+      "error",
+      120
+    ],
+    "max-lines": [
+      "error",
+      {
+        "max": 500
+      }
+    ],
+    "no-await-in-loop": "off",
+    "no-bitwise": "off",
+    "no-console": "error",
+    "no-continue": "off",
+    "no-loop-func": "off",
+    "no-mixed-operators": "off",
+    "no-param-reassign": "off",
+    "no-plusplus": "off",
+    "no-restricted-syntax": "off",
+    "no-underscore-dangle": "off",
+    "no-unused-vars": [
+      "error",
+      {
+        "varsIgnorePattern": "regeneratorRuntime|tdsdk"
+      }
+    ],
+    "object-curly-newline":["error", { "multiline": true }],
+    "object-property-newline": "off",
+    "object-shorthand": [
+      "error",
+      "properties"
+    ],
+    "operator-assignment": "off",
+    "prefer-destructuring": [
+      "warn",
+      {
+        "array": false,
+        "object": true
+      }
+    ],
+    "semi": [
+      "error",
+      "never"
+    ],
+    "spaced-comment": [
+      "error",
+      "always",
+      {
+        "block": {
+          "exceptions": [
+            "*"
+          ]
+        }
+      }
+    ]
+  }
+}
