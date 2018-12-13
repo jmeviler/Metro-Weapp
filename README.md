@@ -42,3 +42,5 @@
  * 如果本项目对您有所帮助, 请杯咖啡☕️吧～
 
     <img src="./screenshot/WechatIMG.jpeg" width = "300" height = "300" />
+
+#### 版权声明：非商用-非衍生-保持署名[（创意共享3.0许可证）](https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh)
