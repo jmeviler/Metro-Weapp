@@ -7,12 +7,12 @@ import EXITS from '../../data/exits'
 
 Page({
   data: {
-    bus: [],
     details: [],
     exit: [],
     lines: [],
     lineColors: [],
     fltimes: [],
+    barrierInfo: [],
     name: '',
     nameEn: '',
     imgUrl: '',
@@ -31,7 +31,7 @@ Page({
     const { name } = options
     const { tabs, stv, activeTab, lines } = this.data
     let { nameEn, fltimes } = this.data
-    const { bus, exit, imgUrl, location } = EXITS[name]
+    const { exit, imgUrl, location, barrierfreeinfo } = EXITS[name]
 
     const details = DETAILS[name]
     this.tabsCount = tabs.length
@@ -47,9 +47,10 @@ Page({
     })
 
     this.setData({
-      bus, exit, name, nameEn, lines,
+      exit, name, nameEn, lines,
       fltimes, details, location,
       imgUrl: imgUrl || '',
+      barrierInfo: this.formatBarrier(barrierfreeinfo),
       tabs: imgUrl ? tabs : tabs.splice(0, 2),
       lineColors: Enums.LINE_COLORS,
       stv: { ...stv, windowWidth },
@@ -80,6 +81,11 @@ Page({
 
   onClickPreview: function () {
     wx.previewImage({ urls: [this.data.imgUrl] })
+  },
+
+  formatBarrier: function (info = '') {
+    if (!info) return []
+    return info[0].split('\n')
   },
 
   updateHistory: function (name = '') {

@@ -11,6 +11,7 @@
               value="{{inputVal}}"
               focus="{{inputShowed}}"
               bindinput="onChangeName"
+              bindconfirm="onSubmit"
             />
 
             <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="onClearInput">

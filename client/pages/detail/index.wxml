@@ -109,6 +109,13 @@
             </view>
           </view>
 
+          <view class="exit-wrap" wx:if="{{barrierInfo && barrierInfo.length}}">
+            <view class="line-name base-tips">无障碍设施</view>
+            <view class="barrier-info" wx:for="{{barrierInfo}}" wx:key="index">
+              {{item}}
+            </view>
+          </view>
+
           <view class="exit-wrap" wx:if="{{exit && exit.length}}">
             <view class="line-name base-tips">出口</view>
             <view class="exit-info" wx:for="{{exit}}" wx:key="index">

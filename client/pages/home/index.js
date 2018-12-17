@@ -69,6 +69,10 @@ Page({
     this.setData({ inputVal: '', matches: [] })
   },
 
+  onSubmit: function (e) {
+    wx.navigateTo({ url: `/pages/detail/index?name=${e.detail.value}` })
+  },
+
   onChangeName: function (e) {
     this.setData({
       inputVal: e.detail.value,
