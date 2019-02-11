@@ -36,6 +36,7 @@
  * 本小程序地图使用[腾讯地图](https://lbs.qq.com/index.html)
  * 小程序框架模版由 [template-weapp](https://github.com/tech-demo/template-weapp) 强力驱动
  * 黑科技展现: 绕过授权, 获取地理位置信息
+ * `/client/data/` 中为项目数据结构.
  * `资源来自互联网侵权, 违规立删`
 
 #### 项目展示
