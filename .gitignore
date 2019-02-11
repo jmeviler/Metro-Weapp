@@ -2,7 +2,8 @@
 
 package-lock.json
 node_modules
-client/data/*
 server/config.js
 server/app.js
 server/db.js
+client/data/stations.js
+client/data/exits.js
